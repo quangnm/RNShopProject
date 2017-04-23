@@ -1,81 +1,41 @@
 import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-} from 'react-native';
+// import {
+//     StyleSheet,
+// } from 'react-native';
+
+import Drawer from 'react-native-drawer';
+
+import Menu from './Menu.js';
+import Shop from './Shop/Shop.js';
 
 export default class Main extends Component {
-    gotoAuthentication() {
-        const navigator = this.props.navigator;
-        navigator.push({ name: 'AUTHENTICATION' });
-    }
-
-    gotoChangeInfo() {
-        const navigator = this.props.navigator;
-        navigator.push({ name: 'CHANGE_INFO' });
-    }
-
-    gotoOrderHistory() {
-        const navigator = this.props.navigator;
-        navigator.push({ name: 'ORDER_HISTORY' });
-    }
+    closeControlPanel = () => {
+        this.drawer.close();
+    };
+    openControlPanel = () => {
+        this.drawer.open();
+    };
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Main</Text>
-                <TouchableOpacity
-                    onPress={this.gotoAuthentication.bind(this)}
-                    style={[styles.buttonContainer, styles.buttonRed]}
-                >
-                    <Text style={styles.buttonTitle}>Go to Authentication</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={this.gotoChangeInfo.bind(this)}
-                    style={[styles.buttonContainer, styles.buttonBlue]}
-                >
-                    <Text style={styles.buttonTitle}>Go to ChangeInfo</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={this.gotoOrderHistory.bind(this)}
-                    style={[styles.buttonContainer, styles.buttonGreen]}
-                >
-                    <Text style={styles.buttonTitle}>Go to OrderHistory</Text>
-                </TouchableOpacity>
-            </View>
+            <Drawer
+                ref={(ref) => { this.drawer = ref; }}
+                content={<Menu navigator={this.props.navigator} />}
+                openDrawerOffset={0.2}
+                panCloseMask={0.2}
+                tapToClose
+            >
+                <Shop open={this.openControlPanel.bind(this)} />
+            </Drawer>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#DFF5C9'
-    },
-    buttonContainer: {
-        width: 200,
-        height: 44,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 5,
-        margin: 10,
-    },
-    buttonBlue: {
-        backgroundColor: 'blue',
-    },
-    buttonRed: {
-        backgroundColor: 'red',
-    },
-    buttonGreen: {
-        backgroundColor: 'green',
-    },
-    buttonTitle: {
-        color: 'white',
-        padding: 10,
-        fontWeight: 'bold'
-    },
-});
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         backgroundColor: '#DFF5C9'
+//     },
+// });
