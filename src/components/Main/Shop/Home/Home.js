@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text,
     StyleSheet,
 } from 'react-native';
+import Collection from './Collection.js';
+import Category from './Category.js';
 
 export default class Home extends Component {
     openMenu() {
@@ -12,9 +13,11 @@ export default class Home extends Component {
     }
 
     render() {
+        const { container } = styles;
         return (
-            <View style={styles.container}>
-                <Text>Home</Text>
+            <View style={container}>
+                <Collection />
+                <Category />
             </View>
         );
     }
@@ -23,8 +26,6 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'red'
+        backgroundColor: '#DBDBD8'
     },
 });
