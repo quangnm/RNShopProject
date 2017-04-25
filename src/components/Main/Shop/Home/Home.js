@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
-    View,
+    ScrollView,
     StyleSheet,
 } from 'react-native';
 import Collection from './Collection.js';
 import Category from './Category.js';
+import TopProduct from './TopProduct';
 
 export default class Home extends Component {
     openMenu() {
@@ -15,10 +16,11 @@ export default class Home extends Component {
     render() {
         const { container } = styles;
         return (
-            <View style={container}>
+            <ScrollView style={container}>
                 <Collection />
                 <Category />
-            </View>
+                <TopProduct />
+            </ScrollView>
         );
     }
 }
