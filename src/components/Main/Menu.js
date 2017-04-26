@@ -52,7 +52,10 @@ export default class Menu extends Component {
         //Co the: sau nay se chuyen thanh 1 component rieng
         const logoutJSX = (
             <View style={{ flex: 1 }}>
-                <TouchableOpacity style={[buttonStyle, buttonSignInStyle]}>
+                <TouchableOpacity
+                    style={[buttonStyle, buttonSignInStyle]}
+                    onPress={this.gotoAuthentication.bind(this)}
+                >
                     <Text style={titleButtonStyle}>Sign In</Text>
                 </TouchableOpacity>
             </View>
@@ -63,10 +66,16 @@ export default class Menu extends Component {
                 <View style={userNameContainer}>
                     <Text style={userNameStyle}>User name</Text>
                 </View>
-                <TouchableOpacity style={[buttonStyle, buttonSignOutStyle]}>
+                <TouchableOpacity
+                    style={[buttonStyle, buttonSignOutStyle]}
+                    onPress={this.gotoOrderHistory.bind(this)}
+                >
                     <Text style={titleButtonStyle}>Order History</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[buttonStyle, buttonSignOutStyle]}>
+                <TouchableOpacity
+                    style={[buttonStyle, buttonSignOutStyle]}
+                    onPress={this.gotoChangeInfo.bind(this)}
+                >
                     <Text style={titleButtonStyle}>Change Info</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[buttonStyle, buttonSignOutStyle]}>
