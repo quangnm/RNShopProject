@@ -59,7 +59,7 @@ export default class Category extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: height * 0.35,
+        width: width - 20,
         backgroundColor: '#FFFFFF',
         margin: 10,
         shadowColor: '#2E272B',
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flex: 1,
+        height: 50,
         justifyContent: 'center',
         paddingTop: 5,
     },

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import bannerImage from '../../../Images/temp/banner.jpg';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default class Collection extends Component {
     render() {
@@ -42,7 +42,7 @@ const imageHeight = (imageWidth * 465) / 933;
 
 const styles = StyleSheet.create({
     container: {
-        height: height * 0.35,
+        width: width - 20,
         backgroundColor: '#FFFFFF',
         margin: 10,
         shadowColor: '#2E272B',
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flex: 1,
+        height: 50,
         justifyContent: 'center',
         paddingTop: 5,
     },
